@@ -4,6 +4,7 @@ edit word document by an enduser through APIs, HTTP, with no need for any client
 
 
 add the below code into Configure
+```
 app.UseLMYMSWordEditor(o =>
       {
           o.PhysicalFolderPath = @"D:\MyFolderRoot";
@@ -18,13 +19,17 @@ app.UseLMYMSWordEditor(o =>
              //handle errors here
           };
       });
-      
+```
+
 then just hit the below url in the browser (token )
-ms-word:ofv|u|http://localhost:6000/LMY.MSWordEditor/token=userToken/document.docx
-
+```
+      ms-word:ofv|u|http://localhost:6000/LMY.MSWordEditor/token=userToken/document.docx
+```
 Or without token as below
-ms-word:ofv|u|http://localhost:6000/LMY.MSWordEditor/document.docx
-
+```
+      ms-word:ofv|u|http://localhost:6000/LMY.MSWordEditor/document.docx
+```
 file path can be as below
-ms-word:ofv|u|http://localhost:6000/LMY.MSWordEditor/subfolder1/subfolder2/document.docx
-
+```
+      ms-word:ofv|u|http://localhost:6000/LMY.MSWordEditor/subfolder1/subfolder2/document.docx
+```
