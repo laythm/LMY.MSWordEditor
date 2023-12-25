@@ -4,7 +4,37 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Title>LMY Office Word Remote Editor</Title>
+    <Description># LMY.MSWordEditor
+Microsoft office word remote editor,
+edit word document by an enduser through APIs, HTTP, with no need for any client application to be installed on enduser machine, it can be used from mobile also 
+ 
+</Description>
+    <PackageProjectUrl>https://github.com/laythm/LMY.MSWordEditor</PackageProjectUrl>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/laythm/LMY.MSWordEditor</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>word, MS, webdav, word editor,</PackageTags>
+	<Authors>Layth Morrar</Authors>
+	<LicenseUrl>https://opensource.org/licenses/MIT</LicenseUrl>
+	<PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="C:\Users\Layth Morrar\Downloads\icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="C:\Users\Layth Morrar\Downloads\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
