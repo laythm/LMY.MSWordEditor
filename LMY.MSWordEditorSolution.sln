@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LMY.MSWordEditor", "LMY.MSW
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tester", "Tester\Tester.csproj", "{7F320822-7382-41C0-98A8-CF9CB9AB5160}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LMY.MSWordEditorManual", "LMY.MSWordEditorManual\LMY.MSWordEditorManual.csproj", "{744F234E-FE77-4CAD-8399-761686E5B9A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7F320822-7382-41C0-98A8-CF9CB9AB5160}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F320822-7382-41C0-98A8-CF9CB9AB5160}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F320822-7382-41C0-98A8-CF9CB9AB5160}.Release|Any CPU.Build.0 = Release|Any CPU
+		{744F234E-FE77-4CAD-8399-761686E5B9A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{744F234E-FE77-4CAD-8399-761686E5B9A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{744F234E-FE77-4CAD-8399-761686E5B9A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{744F234E-FE77-4CAD-8399-761686E5B9A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
