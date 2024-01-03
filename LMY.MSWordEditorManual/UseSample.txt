@@ -1,0 +1,69 @@
+﻿     app.UseLMYMSWordEditor(o =>
+            {
+                o.OnAuthentication = (string token, HttpContext httpContext) =>
+                {
+                    var myService = httpContext.RequestServices.GetService<DAL.CTSModels.CTSContext>();
+
+                    return true;
+                };
+                o.OnGetFile = (string token, string path, HttpContext httpContext) =>
+                {
+                    try
+                    {
+                        var viewerActionsManager = httpContext.RequestServices.GetService<ViewerActionsManager>();
+
+                        var splitedPath = path.Split("/");
+                 
+                        var attachmentId = long.Parse(splitedPath[splitedPath.Length - 3]);
+                        var attachmentVersionId = long.Parse(splitedPath[splitedPath.Length - 2]);
+
+                        var attachmentData = viewerActionsManager.GetAttachment(attachmentId, long.Parse(getUserIdFromToken(token)), attachmentVersionId).GetAwaiter().GetResult();
+                        return attachmentData.Data;
+                    }
+                    catch (Exception ex)
+                    {
+                        try
+                        {
+                            var logger = httpContext.RequestServices.GetService<ILogger<ViewerActionsManager>>();
+                            if (logger != null)
+                            {
+                                logger.LogError(ex, $"Error with  UseLMYMSWordEditor");
+                            }
+                        }
+                        catch { }
+                    }
+
+                    return null;
+                };
+                o.OnSaveFile = (string token, string path, byte[] newFileBytes, HttpContext httpContext) =>
+                { 
+                    try
+                    {
+                        var viewerActionsManager = httpContext.RequestServices.GetService<ViewerActionsManager>();
+
+                        var splitedPath = path.Split("/");
+
+                        var attachmentId = long.Parse(splitedPath[splitedPath.Length - 3]);
+                        var attachmentVersionId = long.Parse(splitedPath[splitedPath.Length - 2]);
+
+                        viewerActionsManager.CheckIn(attachmentId, long.Parse(getUserIdFromToken(token)), true, true, newFileBytes).GetAwaiter().GetResult();
+                    }
+                    catch (Exception ex)
+                    {
+                        try
+                        {
+                            var logger = httpContext.RequestServices.GetService<ILogger<ViewerActionsManager>>();
+                            if (logger != null)
+                            {
+                                logger.LogError(ex, $"Error with  UseLMYMSWordEditor");
+                            }
+                        }
+                        catch { }
+                    }
+                    return true;
+                };
+                o.OnError = (string error, HttpContext httpContext) =>
+                {
+                    //handle errors here
+                };
+            });
