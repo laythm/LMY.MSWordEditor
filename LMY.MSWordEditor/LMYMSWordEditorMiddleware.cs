@@ -145,7 +145,10 @@ namespace LMY.MSWordEditor
                 else
                 {
                     // rewind the stream for the next middleware
-                    httpContext.Request.Body.Seek(0, SeekOrigin.Begin);
+                    if (httpContext.Request.Body.CanSeek)
+                    {
+                        httpContext.Request.Body.Seek(0, SeekOrigin.Begin);
+                    }
                     await _next.Invoke(httpContext);
                 }
             }
